@@ -31,10 +31,15 @@
     body {
       width: 100%;
       height: 100%;
+      min-height: 100%;
+      margin: 0;
       overflow: hidden;
     }
 
     body {
+      position: fixed;
+      inset: 0;
+
       font-family: Georgia, "Times New Roman", serif;
       color: var(--dark);
       background: var(--cream);
@@ -54,10 +59,23 @@
       inset: 0;
       overflow: hidden;
       z-index: -1;
+
       background:
-        radial-gradient(circle at 10% 15%, #ffd0dd 0%, transparent 28%),
-        radial-gradient(circle at 90% 15%, #d8caff 0%, transparent 30%),
-        radial-gradient(circle at 50% 100%, #ffe4aa 0%, transparent 30%),
+        radial-gradient(
+          circle at 10% 15%,
+          #ffd0dd 0%,
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 90% 15%,
+          #d8caff 0%,
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 50% 100%,
+          #ffe4aa 0%,
+          transparent 30%
+        ),
         var(--cream);
     }
 
@@ -115,16 +133,20 @@
       top: 22px;
       left: 50%;
       z-index: 100;
+
       display: flex;
       gap: 7px;
+
       transform: translateX(-50%);
     }
 
     .progress-dot {
       width: 8px;
       height: 8px;
+
       border-radius: 50%;
       background: rgba(53, 29, 42, 0.2);
+
       transition: 0.3s ease;
     }
 
@@ -141,13 +163,20 @@
     .screen {
       position: absolute;
       inset: 0;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       padding: 70px 20px 35px;
+
+      overflow: hidden;
+
       opacity: 0;
       visibility: hidden;
+
       transform: translateX(70px) scale(0.98);
+
       transition:
         opacity 0.55s ease,
         transform 0.55s ease,
@@ -167,10 +196,15 @@
 
     .content {
       width: min(850px, 100%);
-      max-height: calc(100vh - 110px);
+      max-height: 100%;
+
       overflow-y: auto;
+      overflow-x: hidden;
+
       text-align: center;
+
       scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
     }
 
     .content::-webkit-scrollbar {
@@ -183,11 +217,13 @@
 
     .eyebrow {
       margin-bottom: 16px;
+
       font-family: Arial, sans-serif;
       font-size: 11px;
       font-weight: 900;
       letter-spacing: 4px;
       text-transform: uppercase;
+
       color: var(--pink);
     }
 
@@ -199,25 +235,34 @@
 
     .next-button {
       margin-top: 35px;
+
       border: 0;
       padding: 15px 27px;
       border-radius: 999px;
+
       color: white;
+
       background: linear-gradient(
         90deg,
         var(--pink),
         var(--coral)
       );
+
       font-family: Arial, sans-serif;
       font-size: 13px;
       font-weight: 900;
-      box-shadow: 0 12px 25px rgba(255, 23, 97, 0.22);
+
+      box-shadow:
+        0 12px 25px rgba(255, 23, 97, 0.22);
+
       transition: 0.25s ease;
     }
 
     .next-button:hover {
       transform: translateY(-3px) scale(1.03);
-      box-shadow: 0 16px 30px rgba(255, 23, 97, 0.28);
+
+      box-shadow:
+        0 16px 30px rgba(255, 23, 97, 0.28);
     }
 
     /* =========================
@@ -243,13 +288,15 @@
       background-clip: text;
       color: transparent;
 
-      filter: drop-shadow(
-        8px 10px 0 rgba(255, 23, 97, 0.08)
-      );
+      filter:
+        drop-shadow(
+          8px 10px 0 rgba(255, 23, 97, 0.08)
+        );
     }
 
     .intro h1 {
       margin-top: 30px;
+
       font-size: clamp(42px, 7vw, 72px);
       line-height: 0.95;
     }
@@ -261,7 +308,9 @@
     .intro-text {
       max-width: 550px;
       margin: 25px auto 0;
+
       color: var(--muted);
+
       font-size: 18px;
       line-height: 1.7;
     }
@@ -273,29 +322,39 @@
 
     .rings {
       position: relative;
+
       display: flex;
       justify-content: center;
+
       margin: 35px 0;
+
       cursor: pointer;
     }
 
     .ring {
       width: 130px;
       height: 130px;
+
       border: 17px solid var(--yellow);
       border-radius: 50%;
+
       box-shadow:
         inset 0 0 15px rgba(0, 0, 0, 0.08),
         0 12px 25px rgba(229, 169, 40, 0.2);
+
       transition: 0.5s ease;
     }
 
     .ring:first-child {
-      transform: translateX(22px) rotate(-12deg);
+      transform:
+        translateX(22px)
+        rotate(-12deg);
     }
 
     .ring:last-child {
-      transform: translateX(-22px) rotate(12deg);
+      transform:
+        translateX(-22px)
+        rotate(12deg);
     }
 
     .rings:hover .ring:first-child {
@@ -324,18 +383,26 @@
     .wedding-text {
       max-width: 650px;
       margin: 20px auto;
+
       color: var(--muted);
+
       font-size: 18px;
       line-height: 1.8;
     }
 
     .date {
       display: inline-block;
+
       margin-top: 8px;
       padding: 11px 18px;
+
       border-radius: 999px;
+
       background: white;
-      box-shadow: 0 10px 25px rgba(53, 29, 42, 0.1);
+
+      box-shadow:
+        0 10px 25px rgba(53, 29, 42, 0.1);
+
       font-family: Arial, sans-serif;
       font-size: 12px;
       font-weight: 900;
@@ -348,14 +415,19 @@
 
     .story-card {
       padding: 45px 35px;
+
       border-radius: 35px;
+
       background: rgba(255, 255, 255, 0.85);
-      box-shadow: 0 25px 70px rgba(53, 29, 42, 0.1);
+
+      box-shadow:
+        0 25px 70px rgba(53, 29, 42, 0.1);
     }
 
     .story-card h2 {
-      font-size: clamp(40px, 7vw, 65px);
       margin-bottom: 25px;
+
+      font-size: clamp(40px, 7vw, 65px);
     }
 
     .story-card h2 span {
@@ -365,7 +437,9 @@
     .story-text {
       max-width: 680px;
       margin: auto;
+
       color: var(--muted);
+
       font-size: 18px;
       line-height: 1.9;
     }
@@ -374,12 +448,15 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 12px;
+
       margin-top: 35px;
     }
 
     .chapter-card {
       padding: 20px 15px;
+
       border-radius: 20px;
+
       color: white;
       text-align: left;
     }
@@ -398,7 +475,9 @@
 
     .chapter-card strong {
       display: block;
+
       margin-bottom: 5px;
+
       font-family: Arial, sans-serif;
       font-size: 13px;
     }
@@ -415,16 +494,22 @@
     .memory-card {
       width: min(500px, 100%);
       height: 310px;
+
       margin: 30px auto 0;
+
       perspective: 1000px;
+
       cursor: pointer;
     }
 
     .memory-inner {
       position: relative;
+
       width: 100%;
       height: 100%;
+
       transition: transform 0.7s;
+
       transform-style: preserve-3d;
     }
 
@@ -436,18 +521,25 @@
     .memory-back {
       position: absolute;
       inset: 0;
+
       display: flex;
       align-items: center;
       justify-content: center;
       flex-direction: column;
+
       padding: 35px;
+
       border-radius: 30px;
+
       backface-visibility: hidden;
-      box-shadow: 0 25px 60px rgba(53, 29, 42, 0.15);
+
+      box-shadow:
+        0 25px 60px rgba(53, 29, 42, 0.15);
     }
 
     .memory-front {
       color: white;
+
       background: linear-gradient(
         135deg,
         var(--pink),
@@ -459,6 +551,7 @@
       font-family: Arial, sans-serif;
       font-size: 80px;
       font-weight: 1000;
+
       opacity: 0.35;
     }
 
@@ -469,6 +562,7 @@
 
     .tap {
       margin-top: 20px;
+
       font-family: Arial, sans-serif;
       font-size: 11px;
       font-weight: 900;
@@ -482,12 +576,18 @@
     }
 
     .memory-back .heart {
-      font-size: 55px;
+      position: static;
+
       margin-bottom: 20px;
+
+      font-size: 55px;
+
+      animation: none;
     }
 
     .memory-back p {
       color: var(--muted);
+
       font-size: 19px;
       line-height: 1.8;
     }
@@ -501,16 +601,24 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 15px;
+
       margin-top: 30px;
     }
 
     .reason {
       padding: 28px;
+
       border-radius: 25px;
+
       background: white;
+
       text-align: left;
-      box-shadow: 0 15px 35px rgba(53, 29, 42, 0.09);
+
+      box-shadow:
+        0 15px 35px rgba(53, 29, 42, 0.09);
+
       transition: 0.3s ease;
+
       cursor: pointer;
     }
 
@@ -519,8 +627,8 @@
     }
 
     .reason-icon {
-      font-size: 35px;
       margin-bottom: 12px;
+      font-size: 35px;
     }
 
     .reason h3 {
@@ -550,7 +658,9 @@
     .final-text {
       max-width: 600px;
       margin: 25px auto;
+
       color: var(--muted);
+
       font-size: 18px;
       line-height: 1.8;
     }
@@ -562,19 +672,27 @@
     .heart {
       position: fixed;
       z-index: 200;
+
       pointer-events: none;
+
       font-size: 25px;
-      animation: heartUp 2.5s ease-out forwards;
+
+      animation:
+        heartUp 2.5s ease-out forwards;
     }
 
     @keyframes heartUp {
       from {
         opacity: 1;
-        transform: translateY(0) scale(1);
+
+        transform:
+          translateY(0)
+          scale(1);
       }
 
       to {
         opacity: 0;
+
         transform:
           translateY(-180px)
           scale(1.8)
@@ -587,42 +705,203 @@
     ========================== */
 
     @media (max-width: 600px) {
+
       .screen {
-        padding: 60px 15px 20px;
+        padding: 55px 15px 20px;
       }
 
       .content {
-        max-height: calc(100vh - 85px);
+        width: 100%;
+        max-height: 100%;
       }
 
+      /* INTRO */
+
       .intro-number {
-        font-size: 170px;
+        font-size: clamp(130px, 42vw, 170px);
+      }
+
+      .intro h1 {
+        margin-top: 20px;
+
+        font-size: clamp(38px, 11vw, 52px);
+      }
+
+      .intro-text {
+        margin-top: 18px;
+
+        font-size: 16px;
+        line-height: 1.6;
+      }
+
+      .next-button {
+        margin-top: 25px;
+        padding: 14px 23px;
+      }
+
+      /* WEDDING */
+
+      .rings {
+        margin: 25px 0;
       }
 
       .ring {
         width: 95px;
         height: 95px;
+
         border-width: 13px;
       }
+
+      .wedding h2 {
+        font-size: clamp(38px, 11vw, 55px);
+      }
+
+      .wedding-text {
+        font-size: 16px;
+        line-height: 1.6;
+      }
+
+      /* STORY */
 
       .story-card {
         padding: 30px 22px;
       }
 
+      .story-card h2 {
+        font-size: clamp(38px, 11vw, 55px);
+      }
+
+      .story-text {
+        font-size: 16px;
+        line-height: 1.7;
+      }
+
       .chapter {
         grid-template-columns: 1fr;
+        gap: 10px;
       }
 
       .chapter-card {
+        padding: 16px;
         text-align: center;
       }
 
+      /* MEMORY */
+
+      .memory-card {
+        width: min(500px, 100%);
+        height: 280px;
+      }
+
+      .memory-front .number {
+        font-size: 65px;
+      }
+
+      .memory-front h2 {
+        font-size: 30px;
+      }
+
+      .memory-back p {
+        font-size: 17px;
+        line-height: 1.6;
+      }
+
+      /* REASONS */
+
       .reasons-grid {
         grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .reason {
+        padding: 22px;
+      }
+
+      /* FINAL */
+
+      .final h2 {
+        font-size: clamp(42px, 12vw, 65px);
+      }
+
+      .final-text {
+        font-size: 16px;
+        line-height: 1.7;
+      }
+    }
+
+    /* =========================
+       VERY SHORT MOBILE SCREENS
+    ========================== */
+
+    @media (max-height: 700px) and (max-width: 600px) {
+
+      .screen {
+        padding-top: 48px;
+        padding-bottom: 15px;
+      }
+
+      .progress {
+        top: 14px;
+      }
+
+      .intro-number {
+        font-size: 125px;
+      }
+
+      .intro h1 {
+        margin-top: 15px;
+      }
+
+      .intro-text {
+        margin-top: 12px;
+      }
+
+      .next-button {
+        margin-top: 18px;
+      }
+
+      .rings {
+        margin: 15px 0;
+      }
+
+      .ring {
+        width: 75px;
+        height: 75px;
+        border-width: 10px;
+      }
+
+      .story-card {
+        padding: 22px 18px;
+      }
+
+      .story-card h2 {
+        margin-bottom: 15px;
+      }
+
+      .story-text {
+        line-height: 1.55;
+      }
+
+      .chapter {
+        margin-top: 20px;
       }
 
       .memory-card {
-        height: 280px;
+        height: 240px;
+        margin-top: 20px;
+      }
+
+      .reason {
+        padding: 17px;
+      }
+
+      .reason-icon {
+        margin-bottom: 6px;
+        font-size: 28px;
+      }
+
+      .reason h3 {
+        font-size: 19px;
       }
     }
   </style>
@@ -630,29 +909,45 @@
 
 <body>
 
-  <!-- BACKGROUND -->
+  <!-- =========================
+       BACKGROUND
+  ========================== -->
 
   <div class="background">
+
     <div class="blob one"></div>
+
     <div class="blob two"></div>
+
     <div class="blob three"></div>
+
   </div>
 
 
-  <!-- PROGRESS -->
+  <!-- =========================
+       PROGRESS
+  ========================== -->
 
   <div class="progress">
+
     <div class="progress-dot active"></div>
+
     <div class="progress-dot"></div>
+
     <div class="progress-dot"></div>
+
     <div class="progress-dot"></div>
+
     <div class="progress-dot"></div>
+
     <div class="progress-dot"></div>
+
   </div>
 
 
   <!-- =========================
        SCREEN 1
+       INTRO
   ========================== -->
 
   <section class="screen active">
@@ -691,6 +986,7 @@
 
   <!-- =========================
        SCREEN 2
+       WEDDING
   ========================== -->
 
   <section class="screen">
@@ -705,8 +1001,11 @@
         class="rings"
         onclick="ringHearts()"
       >
+
         <div class="ring"></div>
+
         <div class="ring"></div>
+
       </div>
 
       <h2>
@@ -740,6 +1039,7 @@
 
   <!-- =========================
        SCREEN 3
+       OUR STORY
   ========================== -->
 
   <section class="screen">
@@ -764,11 +1064,15 @@
           Our home.
           Our routines.
           Our silly moments.
+
           <br /><br />
+
           We are still learning each other,
           still figuring things out
           and still growing together.
+
           <br /><br />
+
           And honestly, I wouldn't want to
           experience this chapter with anyone else.
         </p>
@@ -776,18 +1080,39 @@
         <div class="chapter">
 
           <div class="chapter-card">
-            <strong>JULY 11</strong>
-            <span>Our wedding day.</span>
+
+            <strong>
+              JULY 11
+            </strong>
+
+            <span>
+              Our wedding day.
+            </span>
+
           </div>
 
           <div class="chapter-card">
-            <strong>AUGUST 11</strong>
-            <span>Our first monthsary.</span>
+
+            <strong>
+              AUGUST 11
+            </strong>
+
+            <span>
+              Our first monthsary.
+            </span>
+
           </div>
 
           <div class="chapter-card">
-            <strong>SEPTEMBER 11</strong>
-            <span>Two months of us.</span>
+
+            <strong>
+              SEPTEMBER 11
+            </strong>
+
+            <span>
+              Two months of us.
+            </span>
+
           </div>
 
         </div>
@@ -808,6 +1133,7 @@
 
   <!-- =========================
        SCREEN 4
+       MEMORY
   ========================== -->
 
   <section class="screen">
@@ -818,7 +1144,11 @@
         A Little Memory
       </div>
 
-      <h2 style="font-size: clamp(40px, 7vw, 65px);">
+      <h2
+        style="
+          font-size: clamp(40px, 7vw, 65px);
+        "
+      >
         Tap the card. 💕
       </h2>
 
@@ -888,7 +1218,11 @@
         Just a Few Reasons
       </div>
 
-      <h2 style="font-size: clamp(42px, 7vw, 65px);">
+      <h2
+        style="
+          font-size: clamp(42px, 7vw, 65px);
+        "
+      >
         Why I Choose You
       </h2>
 
@@ -898,6 +1232,7 @@
           class="reason"
           onclick="reasonClick(event)"
         >
+
           <div class="reason-icon">
             🏡
           </div>
@@ -910,6 +1245,7 @@
             Wherever we are, being beside you
             makes it feel like home.
           </p>
+
         </div>
 
 
@@ -917,6 +1253,7 @@
           class="reason"
           onclick="reasonClick(event)"
         >
+
           <div class="reason-icon">
             🫶
           </div>
@@ -929,6 +1266,7 @@
             Even normal days become something
             I want to remember.
           </p>
+
         </div>
 
 
@@ -936,6 +1274,7 @@
           class="reason"
           onclick="reasonClick(event)"
         >
+
           <div class="reason-icon">
             🌙
           </div>
@@ -948,6 +1287,7 @@
             The one I want beside me through
             every chapter.
           </p>
+
         </div>
 
 
@@ -955,6 +1295,7 @@
           class="reason"
           onclick="reasonClick(event)"
         >
+
           <div class="reason-icon">
             ♾️
           </div>
@@ -967,6 +1308,7 @@
             Today, tomorrow and every day
             that comes after.
           </p>
+
         </div>
 
       </div>
@@ -1004,7 +1346,9 @@
 
       <p class="final-text">
         Happy 2nd wedding monthsary, my hon.
+
         <br /><br />
+
         May Allah bless our marriage,
         our home, our future
         and every chapter still waiting for us.
@@ -1047,10 +1391,13 @@
         screens[index];
 
       oldScreen.classList.remove("active");
+
       oldScreen.classList.add("exit-left");
 
       setTimeout(() => {
+
         oldScreen.classList.remove("exit-left");
+
       }, 600);
 
       newScreen.classList.add("active");
@@ -1060,6 +1407,7 @@
       updateProgress();
 
       createHearts();
+
     }
 
 
@@ -1069,8 +1417,15 @@
 
     function nextScreen() {
 
-      if (currentScreen < screens.length - 1) {
-        goToScreen(currentScreen + 1);
+      if (
+        currentScreen <
+        screens.length - 1
+      ) {
+
+        goToScreen(
+          currentScreen + 1
+        );
+
       }
 
     }
@@ -1082,14 +1437,16 @@
 
     function updateProgress() {
 
-      dots.forEach((dot, index) => {
+      dots.forEach(
+        (dot, index) => {
 
-        dot.classList.toggle(
-          "active",
-          index === currentScreen
-        );
+          dot.classList.toggle(
+            "active",
+            index === currentScreen
+          );
 
-      });
+        }
+      );
 
     }
 
@@ -1100,7 +1457,9 @@
 
     function flipMemory(card) {
 
-      card.classList.toggle("flipped");
+      card.classList.toggle(
+        "flipped"
+      );
 
       createHearts();
 
@@ -1151,33 +1510,49 @@
         "♡"
       ];
 
-      for (let index = 0; index < 10; index++) {
+      for (
+        let index = 0;
+        index < 10;
+        index++
+      ) {
 
         const heart =
           document.createElement("div");
 
-        heart.className = "heart";
+        heart.className =
+          "heart";
 
         heart.textContent =
           hearts[
             Math.floor(
-              Math.random() * hearts.length
+              Math.random() *
+              hearts.length
             )
           ];
 
         heart.style.left =
-          `${x + (Math.random() * 120 - 60)}px`;
+          `${
+            x +
+            (Math.random() * 120 - 60)
+          }px`;
 
         heart.style.top =
-          `${y + (Math.random() * 50 - 25)}px`;
+          `${
+            y +
+            (Math.random() * 50 - 25)
+          }px`;
 
         heart.style.animationDelay =
           `${Math.random() * 0.4}s`;
 
-        document.body.appendChild(heart);
+        document.body.appendChild(
+          heart
+        );
 
         setTimeout(() => {
+
           heart.remove();
+
         }, 3000);
 
       }
@@ -1197,14 +1572,20 @@
           event.key === "ArrowRight" ||
           event.key === "Enter"
         ) {
+
           nextScreen();
+
         }
 
         if (
           event.key === "ArrowLeft" &&
           currentScreen > 0
         ) {
-          goToScreen(currentScreen - 1);
+
+          goToScreen(
+            currentScreen - 1
+          );
+
         }
 
       }
